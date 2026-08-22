@@ -1,79 +1,213 @@
-# Diabetes Risk Prediction & Explainable ML System
+# 🩺 Diabetes Risk Prediction AI
 
-An end-to-end machine-learning classification project demonstrating data preprocessing, exploratory analysis, model comparison, cross-validation, hyperparameter tuning, evaluation, explainability, testing, and Streamlit deployment.
+An AI-powered machine learning application that estimates diabetes risk from patient health-related inputs and presents the prediction through an easy-to-use interface.
 
-> **Important:** This is an educational ML project. It is not a medical diagnostic system.
+> **A practical ML project combining data preprocessing, model training, evaluation, prediction, and an interactive application.**
 
-## Features
+---
 
-- Data validation and cleaning
-- Median imputation and feature scaling
-- Stratified train/test split
-- Logistic Regression, Random Forest and Gradient Boosting comparison
-- Stratified 5-fold cross-validation
-- Randomized hyperparameter optimization
-- Accuracy, precision, recall, F1 and ROC-AUC
-- Confusion matrix and ROC curve
-- SHAP local explainability
-- Persisted sklearn pipeline
-- Streamlit interface
-- Prediction history
-- Pytest checks
-- GitHub-ready structure
+## ✨ Features
 
-## Dataset
+* 🧠 Machine-learning-based diabetes risk prediction
+* 📊 Data preprocessing and feature handling
+* 🔍 Exploratory Data Analysis (EDA)
+* 📈 Model evaluation with performance metrics
+* 📉 Confusion matrix and ROC curve analysis
+* 💡 Prediction/explanation workflow
+* 🖥️ Interactive application interface
+* 🧪 Prediction testing with automated test cases
+* 📁 Organized ML project structure
 
-The app expects `data/diabetes.csv` with the common Pima-style columns:
+---
 
-`Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome`
+## 🛠️ Tech Stack
 
-A synthetic demo generator is included solely to verify the software pipeline. Replace demo data with a documented public dataset before reporting final model metrics on a resume.
+| Technology                | Purpose                  |
+| ------------------------- | ------------------------ |
+| 🐍 Python                 | Core development         |
+| 🤖 Machine Learning       | Diabetes risk prediction |
+| 📊 Pandas / NumPy         | Data processing          |
+| 📈 Matplotlib             | Data visualization       |
+| 📓 Jupyter Notebook       | Exploratory analysis     |
+| 🖥️ Application Interface | User interaction         |
+| 🧪 Testing                | Prediction validation    |
 
-## Setup
+---
+
+## 🧠 Machine Learning Workflow
+
+```text
+User Input
+    ↓
+Data Preprocessing
+    ↓
+Feature Processing
+    ↓
+Trained ML Model
+    ↓
+Risk Prediction
+    ↓
+Result / Explanation
+```
+
+The project follows a complete machine-learning workflow rather than only implementing a prediction model.
+
+---
+
+## 📊 Model Evaluation
+
+The project includes several evaluation artifacts:
+
+* **Confusion Matrix** — to analyze classification performance
+* **ROC Curve** — to evaluate the model's ability to distinguish between classes
+* **Metrics JSON** — stores model evaluation results
+* **Best Parameters JSON** — stores selected model parameters
+
+These files are available inside the `models/` directory.
+
+---
+
+## 📂 Project Structure
+
+```text
+diabetes-risk-prediction/
+│
+├── app/
+│   └── app.py
+│
+├── data/
+│   ├── diabetes.csv
+│   └── README.txt
+│
+├── models/
+│   ├── best_params.json
+│   ├── confusion_matrix.png
+│   ├── feature_names.json
+│   ├── metrics.json
+│   └── roc_curve.png
+│
+├── notebooks/
+│   └── eda.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── evaluate.py
+│   ├── explain.py
+│   ├── make_demo_data.py
+│   ├── predict.py
+│   ├── preprocessing.py
+│   └── train.py
+│
+├── tests/
+│   └── test_prediction.py
+│
+├── .gitignore
+├── requirements.txt
+├── run_project.bat
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/IshitaaBhargava/Diabetes-Prediction-AI.git
+```
+
+### 2. Open the project
+
+```bash
+cd Diabetes-Prediction-AI
+```
+
+### 3. Create a virtual environment
 
 ```bash
 python -m venv .venv
-.venv\Scripts\activate
+```
+
+### 4. Activate the virtual environment
+
+**Windows PowerShell:**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### 5. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Quick test without a CSV
+---
 
-```bash
-python -m src.make_demo_data
-python -m src.train
-python -m src.evaluate
-pytest
-streamlit run app/app.py
+## ▶️ Running the Application
+
+The project includes a `run_project.bat` file for convenient execution on Windows.
+
+You can also start the application using the project's Python setup described in the source files.
+
+Once the application is running, enter the required health-related information and use the prediction interface to obtain the model's result.
+
+---
+
+## 🔬 Exploratory Data Analysis
+
+The project includes a Jupyter notebook:
+
+```text
+notebooks/eda.ipynb
 ```
 
-## With your own dataset
+It is used to explore the dataset and understand the underlying patterns and features before model development.
 
-Place it at:
+---
 
-`data/diabetes.csv`
+## 🧪 Testing
 
-Then run:
+Prediction functionality is tested using:
 
-```bash
-python -m src.train
-python -m src.evaluate
-pytest
-streamlit run app/app.py
+```text
+tests/test_prediction.py
 ```
 
-## Suggested resume description
+This helps verify that the prediction workflow behaves as expected.
 
-**Explainable Diabetes Risk Prediction System | Python, Scikit-learn, XGBoost, SHAP, Streamlit**
+---
 
-- Built an end-to-end ML classification pipeline with data preprocessing, model comparison, stratified cross-validation and hyperparameter optimization.
-- Evaluated classifiers using precision, recall, F1-score and ROC-AUC and implemented SHAP-based local model explanations.
-- Deployed an interactive Streamlit application with validation, prediction history and reproducible model artifacts.
+## 📌 Important Note
 
-Replace generic wording with your actual measured results after training on a documented public dataset.
+This project is developed for **educational and demonstration purposes**.
 
-## Limitations
+The prediction generated by the application should **not be treated as a medical diagnosis** or a substitute for professional medical advice.
 
-- Dataset quality and representativeness constrain real-world performance.
-- Model probabilities are not clinical probabilities.
-- This project does not establish medical causation or diagnosis.
+---
+
+## 🚀 Future Improvements
+
+Possible future enhancements include:
+
+* Improving model performance with additional datasets
+* Adding more advanced explainability techniques
+* Expanding the application interface
+* Adding user history and prediction tracking
+* Deploying the application online
+* Adding additional health-risk prediction modules
+
+---
+
+## 👩‍💻 Author
+
+**Ishita Bhargava**
+
+B.Tech — Computer Science & Technology
+
+---
+
+## ⭐ If You Find This Project Interesting
+
+Feel free to explore the repository and the machine-learning workflow behind the application.
