@@ -10,8 +10,17 @@ MODEL_PATH = Path("models/diabetes_pipeline.pkl")
 METRICS_PATH = Path("models/metrics.json")
 
 if not MODEL_PATH.exists():
-    st.error("Model not found. Run: python -m src.make_demo_data (first run only), then python -m src.train")
-    st.stop()
+    import subprocess
+    import sys
+    
+    with st.spinner("Training model for the first time... this may take a moment."):
+        try:
+            subprocess.run([sys.executable, "-m", "src.make_demo_data"], check=True)
+            subprocess.run([sys.executable, "-m", "src.train"], check=True)
+        except subprocess.CalledProcessError as e:
+            st.error(f"Failed to generate model: {e}")
+            st.stop()
+
 
 model = joblib.load(MODEL_PATH)
 metrics = json.loads(METRICS_PATH.read_text()) if METRICS_PATH.exists() else {}
